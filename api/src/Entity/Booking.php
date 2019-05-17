@@ -51,49 +51,31 @@ class Booking
         return $this->id;
     }
 
-    /**
-     * @return Slot
-     */
     public function getSlot(): Slot
     {
         return $this->slot;
     }
 
-    /**
-     * @param Slot $slot
-     */
     public function setSlot(Slot $slot): void
     {
         $this->slot = $slot;
     }
 
-    /**
-     * @return FoodTruck
-     */
     public function getFoodTruck(): FoodTruck
     {
         return $this->foodTruck;
     }
 
-    /**
-     * @param FoodTruck $foodTruck
-     */
     public function setFoodTruck(FoodTruck $foodTruck): void
     {
         $this->foodTruck = $foodTruck;
     }
 
-    /**
-     * @return DateTime
-     */
     public function getDate(): DateTime
     {
         return $this->date;
     }
 
-    /**
-     * @param DateTime $date
-     */
     public function setDate(DateTime $date): void
     {
         $this->date = $date;

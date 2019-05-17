@@ -41,33 +41,21 @@ class Favorite
         return $this->id;
     }
 
-    /**
-     * @return Customer
-     */
     public function getCustomer(): Customer
     {
         return $this->customer;
     }
 
-    /**
-     * @param Customer $customer
-     */
     public function setCustomer(Customer $customer): void
     {
         $this->customer = $customer;
     }
 
-    /**
-     * @return Location
-     */
     public function getLocation(): Location
     {
         return $this->location;
     }
 
-    /**
-     * @param Location $location
-     */
     public function setLocation(Location $location): void
     {
         $this->location = $location;
