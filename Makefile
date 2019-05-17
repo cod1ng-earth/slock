@@ -112,6 +112,13 @@ docker-stats: ##@other show information about running Docker containers
 	$(DOCKER) stats --format "table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}\t{{.BlockIO}}"
 .PHONY: docker-stats
 
+fixtures: vendor ##@development run 'bin/console hautelook:fixtures:load' in container
+	$(CLI) bin/console hautelook:fixtures:load
+.PHONY: fixtures
+
 run-console: ##@development Run custom command (usage example: make run comm='code:generate:module:yves test')
 	$(CONSOLE) $(comm)
 .PHONY: run-console
+
+vendor: api/composer.json api/composer.lock
+	$(CLI) composer install
