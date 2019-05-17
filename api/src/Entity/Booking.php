@@ -25,11 +25,11 @@ class Booking
     private $id;
 
     /**
-     * @var Location
+     * @var Slot
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Location")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Slot")
      */
-    private $location;
+    private $slot;
 
     /**
      * @var FoodTruck truck
@@ -52,19 +52,19 @@ class Booking
     }
 
     /**
-     * @return Location
+     * @return Slot
      */
-    public function getLocation(): Location
+    public function getSlot(): Slot
     {
-        return $this->location;
+        return $this->slot;
     }
 
     /**
-     * @param Location $location
+     * @param Slot $slot
      */
-    public function setLocation(Location $location): void
+    public function setSlot(Slot $slot): void
     {
-        $this->location = $location;
+        $this->slot = $slot;
     }
 
     /**
