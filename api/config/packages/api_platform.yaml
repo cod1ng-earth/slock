@@ -22,3 +22,6 @@ api_platform:
     # Mercure integration, remove if unwanted
     mercure:
         hub_url: '%env(MERCURE_SUBSCRIBE_URL)%'
+    graphql:
+        graphiql:
+            enabled: true
