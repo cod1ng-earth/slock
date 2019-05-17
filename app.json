@@ -1,0 +1,20 @@
+{
+  "repository": "https://github.com/coding-berlin/slock",
+  "success_url": "/",
+  "env": {
+    "APP_ENV": "prod",
+    "APP_SECRET": {"generator": "secret"},
+    "CORS_ALLOW_ORIGIN": "*"
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/negativetwelve/heroku-buildpack-subdir"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "cd api && php bin/console doctrine:schema:create"
+  }
+}
