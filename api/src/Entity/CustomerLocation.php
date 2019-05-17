@@ -6,8 +6,6 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * This is a dummy entity. Remove it!
- *
  * @ApiResource
  * @ORM\Entity
  */
