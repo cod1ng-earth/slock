@@ -42,4 +42,20 @@ class Slot
     {
         return $this->id;
     }
+
+    /**
+     * @return Location
+     */
+    public function getLocation(): Location
+    {
+        return $this->location;
+    }
+
+    /**
+     * @param Location $location
+     */
+    public function setLocation(Location $location): void
+    {
+        $this->location = $location;
+    }
 }
