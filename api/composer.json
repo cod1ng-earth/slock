@@ -21,6 +21,7 @@
     "require-dev": {
         "api-platform/schema-generator": "^2.1",
         "hautelook/alice-bundle": "^2.5.0",
+        "phpstan/phpstan": "~0.11.6",
         "symfony/profiler-pack": "^1.0"
     },
     "config": {
