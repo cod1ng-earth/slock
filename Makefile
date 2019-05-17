@@ -116,6 +116,10 @@ fixtures: ##@development run 'bin/console hautelook:fixtures:load' in container
 	$(CLI) bin/console hautelook:fixtures:load
 .PHONY: fixtures
 
+php-cs-fixer: ##@development run 'vendor/bin/php-cs-fixer fix' in container
+	$(CLI) vendor/bin/php-cs-fixer fix --diff --verbose
+.PHONY: php-cs-fixer
+
 run-console: ##@development Run custom command (usage example: make run comm='code:generate:module:yves test')
 	$(CONSOLE) $(comm)
 .PHONY: run-console
