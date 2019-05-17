@@ -37,9 +37,9 @@ postgresql:
   enabled: true
   imageTag: 10-alpine
   # If bringing your own PostgreSQL, the full uri to use
-  #url: pgsql://api-platform:!ChangeMe!@example.com/api?serverVersion=10.1
+  #url: pgsql://api-platform:Ogesipari344@example.com/api?serverVersion=10.1
   postgresqlUsername: "example"
-  postgresqlPassword: "!ChangeMe!"
+  postgresqlPassword: "Ogesipari344"
   postgresqlDatabase: "api"
   # Persistent Volume Storage configuration.
   # ref: https://kubernetes.io/docs/user-guide/persistent-volumes
