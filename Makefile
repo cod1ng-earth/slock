@@ -120,6 +120,10 @@ php-cs-fixer: ##@development run 'vendor/bin/php-cs-fixer fix' in container
 	$(CLI) vendor/bin/php-cs-fixer fix --diff --verbose
 .PHONY: php-cs-fixer
 
+phpstan: ##@development run 'vendor/bin/phpstan analyse' in container
+	$(CLI) vendor/bin/phpstan analyse --configuration=phpstan.neon
+.PHONY: php-cs-fixer
+
 run-console: ##@development Run custom command (usage example: make run comm='code:generate:module:yves test')
 	$(CONSOLE) $(comm)
 .PHONY: run-console
