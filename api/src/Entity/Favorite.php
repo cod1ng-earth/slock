@@ -23,11 +23,11 @@ class Favorite
     private $id;
 
     /**
-     * @var User
+     * @var Customer
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Customer")
      */
-    private $user;
+    private $customer;
 
     /**
      * @var Location
@@ -42,19 +42,19 @@ class Favorite
     }
 
     /**
-     * @return User
+     * @return Customer
      */
-    public function getUser(): User
+    public function getCustomer(): Customer
     {
-        return $this->user;
+        return $this->customer;
     }
 
     /**
-     * @param User $user
+     * @param Customer $customer
      */
-    public function setUser(User $user): void
+    public function setCustomer(Customer $customer): void
     {
-        $this->user = $user;
+        $this->customer = $customer;
     }
 
     /**

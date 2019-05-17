@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ApiResource
  * @ORM\Entity
  */
-class User
+class Customer
 {
     /**
      * @var int The entity Id
