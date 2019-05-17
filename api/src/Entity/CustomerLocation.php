@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ApiResource
  * @ORM\Entity
  */
-class Favorite
+class CustomerLocation
 {
     /**
      * @var int The entity Id
@@ -30,11 +30,11 @@ class Favorite
     private $customer;
 
     /**
-     * @var FoodTruck
+     * @var Location
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\FoodTruck")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Location")
      */
-    private $foodTruck;
+    private $location;
 
     public function getId(): int
     {
@@ -51,13 +51,13 @@ class Favorite
         $this->customer = $customer;
     }
 
-    public function getFoodTruck(): FoodTruck
+    public function getLocation(): Location
     {
-        return $this->foodTruck;
+        return $this->location;
     }
 
-    public function setFoodTruck(FoodTruck $foodTruck): void
+    public function setLocation(Location $location): void
     {
-        $this->foodTruck = $foodTruck;
+        $this->location = $location;
     }
 }
