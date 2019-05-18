@@ -8,10 +8,12 @@ use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Filter\GeoDistanceFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ApiResource
  * @ApiFilter(GeoDistanceFilter::class, properties={"geo"}))
+ * @ApiFilter(SearchFilter::class, properties={"date": "exact"})
  * @ORM\Entity
  */
 class Booking
