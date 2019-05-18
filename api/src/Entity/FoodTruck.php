@@ -28,7 +28,7 @@ class FoodTruck
      * @ORM\Column
      * @Assert\NotBlank
      */
-    public $name = '';
+    private $name = '';
 
     /**
      * @var PersistentCollection
@@ -56,7 +56,7 @@ class FoodTruck
      *
      * @ORM\Column(type="text")
      */
-    public $description = '';
+    private $description = '';
 
     /**
      * @ORM\Column(options={"default": ""})
@@ -83,6 +83,26 @@ class FoodTruck
     public function getFavorites(): PersistentCollection
     {
         return $this->favorites;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
     }
 
     public function getImageUrl(): string
