@@ -6,6 +6,9 @@ namespace App\Faker\Provider;
 
 use Faker\Provider;
 
+/**
+ * @see http://avatars.adorable.io
+ */
 final class AdorableAvatarUrlProvider extends Provider\Base
 {
     public function adorableAvatarUrl(string $userName, int $size): string
