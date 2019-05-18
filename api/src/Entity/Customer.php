@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -46,19 +47,40 @@ class Customer
     private $avatarUrl = '';
 
     /**
+     * @var PersistentCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\CustomerLocation",mappedBy="customer")
+     */
+    private $customerLocations;
+
+    /**
+     * @var PersistentCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\BookingRating",mappedBy="customer")
+     */
+    private $bookingRatings;
+
+    /**
+     * @var PersistentCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Favorite",mappedBy="customer")
+     */
+    private $favorites;
+
+    /**
      * @ORM\ManyToMany(
      *     targetEntity="App\Entity\LunchTrain",
      *     mappedBy="riders"
      * )
      * @ORM\JoinTable(name="lunch_train_riders")
      *
-     * @var Collections\ArrayCollection<Customer>
+     * @var ArrayCollection<Customer>
      */
     private $lunchTrains;
 
     public function __construct()
     {
-        $this->lunchTrains = new Collections\ArrayCollection();
+        $this->lunchTrains = new ArrayCollection();
     }
 
     public function getId(): int
@@ -96,12 +118,27 @@ class Customer
         $this->avatarUrl = $avatarUrl;
     }
 
-    public function getLunchTrains(): Collections\ArrayCollection
+    public function getCustomerLocations(): PersistentCollection
+    {
+        return $this->customerLocations;
+    }
+
+    public function getFavorites(): PersistentCollection
+    {
+        return $this->favorites;
+    }
+
+    public function getBookingRatings(): PersistentCollection
+    {
+        return $this->bookingRatings;
+    }
+
+    public function getLunchTrains(): ArrayCollection
     {
         return $this->lunchTrains;
     }
 
-    public function setLunchTrains(Collections\ArrayCollection $lunchTrains): void
+    public function setLunchTrains(ArrayCollection $lunchTrains): void
     {
         $this->lunchTrains = $lunchTrains;
     }

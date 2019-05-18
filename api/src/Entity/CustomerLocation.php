@@ -2,11 +2,14 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Filter\LocationFilter;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ApiResource
+ * @ApiFilter(LocationFilter::class, properties={"location"}))
  * @ORM\Entity
  */
 class CustomerLocation
@@ -23,14 +26,14 @@ class CustomerLocation
     /**
      * @var Customer
      *
-     * @ORM\ManyToOne(targetEntity="Customer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Customer",inversedBy="customerLocations")
      */
     private $customer;
 
     /**
      * @var Location
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Location")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Location",inversedBy="customerLocations")
      */
     private $location;
 
