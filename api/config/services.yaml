@@ -36,3 +36,7 @@ services:
             - create
         arguments:
             - 'de_DE'
+        calls:
+            - method: seed
+              arguments: 
+                - 9001
