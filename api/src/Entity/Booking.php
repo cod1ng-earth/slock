@@ -115,6 +115,4 @@ class Booking
     {
         $this->lunchTrains = $lunchTrains;
     }
-
-
 }
