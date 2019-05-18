@@ -3,6 +3,6 @@ includes:
 
 parameters:
 	excludes_analyse:
-		- src/Migrations
+		- %rootDir%/../../../src/Migrations
 	paths:
-		- src
+		- %rootDir%/../../../src

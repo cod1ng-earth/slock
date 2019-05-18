@@ -52,7 +52,7 @@ class Customer
      * )
      * @ORM\JoinTable(name="lunch_train_riders")
      *
-     * @var Collections\Collection<Customer>
+     * @var Collections\ArrayCollection<Customer>
      */
     private $lunchTrains;
 
@@ -96,17 +96,11 @@ class Customer
         $this->avatarUrl = $avatarUrl;
     }
 
-    /**
-     * @return Collections\ArrayCollection
-     */
     public function getLunchTrains(): Collections\ArrayCollection
     {
         return $this->lunchTrains;
     }
 
-    /**
-     * @param Collections\ArrayCollection<LunchTrain> $lunchTrains
-     */
     public function setLunchTrains(Collections\ArrayCollection $lunchTrains): void
     {
         $this->lunchTrains = $lunchTrains;

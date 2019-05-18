@@ -1,5 +1,7 @@
 # slock
 
+[![Build Status](https://travis-ci.org/coding-berlin/slock.svg?branch=master)](https://travis-ci.org/coding-berlin/slock)
+
 This project is based on [API Platform](https://api-platform.com/).
 
 It provides a REST API and a GraphQL API.
