@@ -11,6 +11,7 @@
         "api-platform/api-pack": "^1.1",
         "doctrine/doctrine-migrations-bundle": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
+        "hautelook/alice-bundle": "^2.5.0",
         "symfony/apache-pack": "^1.0",
         "symfony/console": "4.2.*",
         "symfony/dotenv": "4.2.*",
@@ -22,7 +23,6 @@
     },
     "require-dev": {
         "api-platform/schema-generator": "^2.1",
-        "hautelook/alice-bundle": "^2.5.0",
         "phpstan/phpstan": "~0.11.6",
         "symfony/profiler-pack": "^1.0"
     },
