@@ -38,7 +38,7 @@ class Customer
     private $password = '';
 
     /**
-     * @ORM\Column
+     * @ORM\Column(options={"default": ""})
      *
      * @var string
      */
