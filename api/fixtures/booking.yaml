@@ -1,0 +1,5 @@
+App\Entity\Booking:
+    booking_{1..10}:
+        foodtruck: '@foodtruck_*'
+        slot: '@slot_*'
+        date: <dateTimeBetween('-2 days','+4 days')>

@@ -1,0 +1,4 @@
+App\Entity\FoodTruck:
+    foodtruck_{1..10}:
+        name: <name()>
+        description: <paragraphs(3,true)>
