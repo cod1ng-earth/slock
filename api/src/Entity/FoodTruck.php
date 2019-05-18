@@ -67,9 +67,6 @@ class FoodTruck
      */
     private $imageUrl = '';
 
-    /**
-     * FoodTruck constructor.
-     */
     public function __construct()
     {
         $this->bookings = new ArrayCollection();

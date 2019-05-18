@@ -45,9 +45,6 @@ class Slot
      */
     private $name = '';
 
-    /**
-     * Slot constructor.
-     */
     public function __construct()
     {
         $this->bookings = new ArrayCollection();
