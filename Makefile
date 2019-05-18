@@ -120,6 +120,10 @@ fixtures: ##@development run 'bin/console hautelook:fixtures:load' in container
 	$(CLI) bin/console hautelook:fixtures:load
 .PHONY: fixtures
 
+migrate: ##@development Executes Doctrine migrations.
+	$(CLI) bin/console doctrine:migrations:migrate
+.PHONY: migrate
+
 migration: ##@development Validate the schema and create a Doctrine migration when necessary.
 	$(CLI) bin/console doctrine:schema:validate --skip-sync
 	$(CLI) bin/console doctrine:migrations:diff
