@@ -11,6 +11,12 @@ use Doctrine\ORM\QueryBuilder;
 
 final class GeoDistanceFilter extends AbstractContextAwareFilter
 {
+    use AliasGeneratorTrait;
+
+    const PARAMETER_DISTANCE = 'distance';
+    const PARAMETER_LATITUDE = 'latitude';
+    const PARAMETER_LONGITUDE = 'longitude';
+
     protected function filterProperty(
         string $property,
         $values,
@@ -25,57 +31,63 @@ final class GeoDistanceFilter extends AbstractContextAwareFilter
         }
 
         if (!is_array($values) ||
-            !isset($values['latitude']) ||
-            !isset($values['longitude']) ||
-            !isset($values['distance'])
+            !isset($values[self::PARAMETER_LATITUDE]) ||
+            !isset($values[self::PARAMETER_LONGITUDE]) ||
+            !isset($values[self::PARAMETER_DISTANCE])
         ) {
             return;
         }
 
-        if (Booking::class === $resourceClass) {
-            $queryBuilder
-                ->innerJoin('o.slot', 'slot')
-                ->innerJoin('slot.location', 'location')
-            ;
+        if (Booking::class !== $resourceClass) {
+            return;
         }
 
+        $aliasSlot = $this->createUniqueAlias('slot');
+        $aliasLocation = $this->createUniqueAlias('location');
+
         $queryBuilder
-            ->andWhere('contains(earth_box(ll_to_earth(:latitude, :longitude), :distance), ll_to_earth(location.latitude, location.longitude)) = TRUE')
-            ->setParameter(':distance', $values['distance'])
-            ->setParameter(':latitude', $values['latitude'])
-            ->setParameter(':longitude', $values['longitude']);
+            ->innerJoin('o.slot', $aliasSlot)
+            ->innerJoin(sprintf('%s.location', $aliasSlot), $aliasLocation);
+
+        $earthBox = 'earth_box(ll_to_earth(:latitude, :longitude), :distance)';
+        $lltoEarth = sprintf('ll_to_earth(%1$s.latitude, %1$s.longitude)', $aliasLocation);
+        $condition = sprintf('contains(%s,%s) = TRUE', $earthBox, $lltoEarth);
+        $queryBuilder
+            ->andWhere($condition)
+            ->setParameter(':distance', $values[self::PARAMETER_DISTANCE])
+            ->setParameter(':latitude', $values[self::PARAMETER_LATITUDE])
+            ->setParameter(':longitude', $values[self::PARAMETER_LONGITUDE]);
     }
 
     /**
-     * Gets the description of this filter for the given resource.
-     *
-     * Returns an array with the filter parameter names as keys and array with the following data as values:
-     *   - property: the property where the filter is applied
-     *   - type: the type of the filter
-     *   - required: if this filter is required
-     *   - strategy: the used strategy
-     *   - is_collection (optional): is this filter is collection
-     *   - swagger (optional): additional parameters for the path operation,
-     *     e.g. 'swagger' => [
-     *       'description' => 'My Description',
-     *       'name' => 'My Name',
-     *       'type' => 'integer',
-     *     ]
-     *   - openapi (optional): additional parameters for the path operation in the version 3 spec,
-     *     e.g. 'openapi' => [
-     *       'description' => 'My Description',
-     *       'name' => 'My Name',
-     *       'schema' => [
-     *          'type' => 'integer',
-     *       ]
-     *     ]
-     * The description can contain additional data specific to a filter.
-     *
-     * @see \ApiPlatform\Core\Swagger\Serializer\DocumentationNormalizer::getFiltersParameters
+     * {@inheritdoc}
      */
     public function getDescription(string $resourceClass): array
     {
-        // TODO: Implement getDescription() method.
-        return [];
+        $description = [];
+
+        $properties = $this->getProperties();
+        if (null === $properties) {
+            $properties = array_fill_keys($this->getClassMetadata($resourceClass)->getFieldNames(), null);
+        }
+
+        foreach ($properties as $property => $unused) {
+            $description += $this->getFilterDescription($property, self::PARAMETER_LATITUDE);
+            $description += $this->getFilterDescription($property, self::PARAMETER_LONGITUDE);
+            $description += $this->getFilterDescription($property, self::PARAMETER_DISTANCE, 'int');
+        }
+
+        return $description;
+    }
+
+    private function getFilterDescription(string $property, string $parameter, string $type = 'float'): array
+    {
+        return [
+            sprintf('%s[%s]', $property, $parameter) => [
+                'property' => $property,
+                'type' => $type,
+                'required' => true,
+            ],
+        ];
     }
 }

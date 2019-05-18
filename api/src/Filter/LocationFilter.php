@@ -12,6 +12,8 @@ use Doctrine\ORM\QueryBuilder;
 
 final class LocationFilter extends AbstractContextAwareFilter
 {
+    use AliasGeneratorTrait;
+
     protected function filterProperty(
         string $property,
         $value,
@@ -29,14 +31,17 @@ final class LocationFilter extends AbstractContextAwareFilter
             return;
         }
 
+        $aliasLocation = $this->createUniqueAlias('location');
+
         switch ($resourceClass) {
             case Booking::class:
-                $queryBuilder->innerJoin('o.slot', 'slot');
-                $columnName = 'slot.location_id';
+                $aliasSlot = $this->createUniqueAlias('slot');
+                $queryBuilder->innerJoin('o.slot', $aliasSlot);
+                $queryBuilder->innerJoin(sprintf('%s.location', $aliasSlot), $aliasLocation);
                 break;
 
             case CustomerLocation::class:
-                $columnName = 'o.location_id';
+                $queryBuilder->innerJoin('o.location', $aliasLocation);
                 break;
 
             default:
@@ -44,40 +49,30 @@ final class LocationFilter extends AbstractContextAwareFilter
         }
 
         $queryBuilder
-            ->andWhere(sprintf('%s = :location_id', $columnName))
+            ->andWhere(sprintf('%s.id = :location_id', $aliasLocation))
             ->setParameter(':location_id', $value);
     }
 
     /**
-     * Gets the description of this filter for the given resource.
-     *
-     * Returns an array with the filter parameter names as keys and array with the following data as values:
-     *   - property: the property where the filter is applied
-     *   - type: the type of the filter
-     *   - required: if this filter is required
-     *   - strategy: the used strategy
-     *   - is_collection (optional): is this filter is collection
-     *   - swagger (optional): additional parameters for the path operation,
-     *     e.g. 'swagger' => [
-     *       'description' => 'My Description',
-     *       'name' => 'My Name',
-     *       'type' => 'integer',
-     *     ]
-     *   - openapi (optional): additional parameters for the path operation in the version 3 spec,
-     *     e.g. 'openapi' => [
-     *       'description' => 'My Description',
-     *       'name' => 'My Name',
-     *       'schema' => [
-     *          'type' => 'integer',
-     *       ]
-     *     ]
-     * The description can contain additional data specific to a filter.
-     *
-     * @see \ApiPlatform\Core\Swagger\Serializer\DocumentationNormalizer::getFiltersParameters
+     * {@inheritdoc}
      */
     public function getDescription(string $resourceClass): array
     {
-        // TODO: Implement getDescription() method.
-        return [];
+        $description = [];
+
+        $properties = $this->getProperties();
+        if (null === $properties) {
+            $properties = array_fill_keys($this->getClassMetadata($resourceClass)->getFieldNames(), null);
+        }
+
+        foreach ($properties as $property => $unused) {
+            $description[$property] = [
+                'property' => $property,
+                'type' => 'int',
+                'required' => false,
+            ];
+        }
+
+        return $description;
     }
 }
