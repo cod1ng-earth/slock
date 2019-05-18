@@ -1,0 +1,13 @@
+App\Entity\BookingRating:
+    bookingrating_{1..30}:
+        __calls:
+            - setBooking: ['@booking_*']
+        customer: '@customer_*'
+        stars: '<numberBetween(0, 5)>'
+        
+    bookingrating_{31..60}:
+        __calls:
+            - setBooking: ['@booking_*']
+        customer: '@customer_*'
+        stars: '<numberBetween(0, 5)>'
+        comment: '<sentence()>'
