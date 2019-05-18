@@ -1,0 +1,36 @@
+language: php
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+stages:
+  - api
+
+jobs:
+  include:
+    - stage: API
+
+      php: 7.3
+      
+      services:
+        - postgresql      
+
+      before_install:
+        - source api/.travis/xdebug.sh
+        - xdebug-disable
+        - composer validate --working-dir=api/
+
+      install:
+        - composer install --working-dir=api/
+        
+      before_script: 
+        - cp api/.env.travis api/.env.local
+        - psql -c 'create database api_test;' -U postgres
+
+      script:
+        - api/vendor/bin/php-cs-fixer fix --config=api/.php_cs.dist --diff --dry-run --verbose
+        - api/vendor/bin/phpstan analyse --configuration=api/phpstan.neon
+        - api/bin/console doctrine:mapping:info
+        - api/bin/console doctrine:migrations:migrate --no-interaction
+        - api/bin/console doctrine:schema:validate
