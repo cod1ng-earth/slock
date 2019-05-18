@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -47,6 +48,17 @@ class LunchTrain
     private $leavesAt;
 
     /**
+     * @ORM\ManyToMany(
+     *     targetEntity="App\Entity\Customer",
+     *     inversedBy="lunchTrains"
+     * )
+     * @ORM\JoinTable(name="lunch_train_riders")
+     *
+     * @var Collections\Collection<Customer>
+     */
+    private $riders;
+
+    /**
      * @ORM\Column(type="datetime_immutable")
      *
      * @var \DateTimeImmutable
@@ -55,6 +67,7 @@ class LunchTrain
 
     public function __construct()
     {
+        $this->riders = new Collections\ArrayCollection();
         $this->createdAt = new \DateTimeImmutable();
     }
 
@@ -91,6 +104,19 @@ class LunchTrain
     public function setLeavesAt(\DateTimeImmutable $leavesAt): void
     {
         $this->leavesAt = $leavesAt;
+    }
+
+    /**
+     * @return Collections\Collection<Customer>
+     */
+    public function getRiders(): Collections\Collection
+    {
+        return $this->riders;
+    }
+
+    public function setRiders(Collections\Collection $riders): void
+    {
+        $this->riders = $riders;
     }
 
     public function getCreatedAt(): \DateTimeImmutable

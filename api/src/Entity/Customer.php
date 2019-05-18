@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -44,6 +45,22 @@ class Customer
      */
     private $avatarUrl = '';
 
+    /**
+     * @ORM\ManyToMany(
+     *     targetEntity="App\Entity\LunchTrain",
+     *     mappedBy="riders"
+     * )
+     * @ORM\JoinTable(name="lunch_train_riders")
+     *
+     * @var Collections\Collection<Customer>
+     */
+    private $lunchTrains;
+
+    public function __construct()
+    {
+        $this->lunchTrains = new Collections\ArrayCollection();
+    }
+
     public function getId(): int
     {
         return $this->id;
@@ -77,5 +94,21 @@ class Customer
     public function setAvatarUrl(string $avatarUrl): void
     {
         $this->avatarUrl = $avatarUrl;
+    }
+
+    /**
+     * @return Collections\ArrayCollection
+     */
+    public function getLunchTrains(): Collections\ArrayCollection
+    {
+        return $this->lunchTrains;
+    }
+
+    /**
+     * @param Collections\ArrayCollection<LunchTrain> $lunchTrains
+     */
+    public function setLunchTrains(Collections\ArrayCollection $lunchTrains): void
+    {
+        $this->lunchTrains = $lunchTrains;
     }
 }
