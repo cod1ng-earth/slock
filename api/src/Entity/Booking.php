@@ -48,7 +48,7 @@ class Booking
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\LunchTrain", mappedBy="booking")
      *
-     * @var Collection<LunchTrain>
+     * @var Collection|LunchTrain[]
      */
     private $lunchTrains;
 
@@ -101,7 +101,7 @@ class Booking
     }
 
     /**
-     * @return Collection<LunchTrain>
+     * @return Collection|LunchTrain[]
      */
     public function getLunchTrains()
     {
@@ -109,10 +109,12 @@ class Booking
     }
 
     /**
-     * @param Collection<LunchTrain> $lunchTrains
+     * @param Collection|LunchTrain[] $lunchTrains
      */
     public function setLunchTrains($lunchTrains): void
     {
         $this->lunchTrains = $lunchTrains;
     }
+
+
 }
