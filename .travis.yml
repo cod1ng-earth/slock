@@ -31,6 +31,7 @@ jobs:
       script:
         - api/vendor/bin/php-cs-fixer fix --config=api/.php_cs.dist --diff --dry-run --verbose
         - api/vendor/bin/phpstan analyse --configuration=api/phpstan.neon
+        - api/vendor/bin/console lint:yaml api/config api/fixtures
         - api/bin/console doctrine:mapping:info
         - api/bin/console doctrine:migrations:migrate --no-interaction
         - api/bin/console doctrine:schema:validate
