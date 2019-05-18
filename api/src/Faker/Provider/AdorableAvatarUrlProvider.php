@@ -15,8 +15,8 @@ final class AdorableAvatarUrlProvider extends Provider\Base
     {
         return sprintf(
             'https://api.adorable.io/avatars/%d/%s.png',
-            $userName,
-            $size
+            $size,
+            $userName
         );
     }
 }
