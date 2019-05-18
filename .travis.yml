@@ -34,3 +34,4 @@ jobs:
         - api/bin/console doctrine:mapping:info
         - api/bin/console doctrine:migrations:migrate --no-interaction
         - api/bin/console doctrine:schema:validate
+        - api/bin/console hautelook:fixtures:load --no-interaction
