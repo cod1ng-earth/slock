@@ -74,7 +74,6 @@ class Location
         $this->slots = new ArrayCollection();
     }
 
-
     public function getId(): int
     {
         return $this->id;
