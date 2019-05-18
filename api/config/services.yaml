@@ -28,3 +28,11 @@ services:
 
     App\Faker\Provider\AdorableAvatarUrlProvider: ~
     App\Faker\Provider\DateTimeImmutableProvider: ~
+
+    nelmio_alice.faker.generator:
+        class: Faker\Generator
+        factory:
+            - Faker\Factory
+            - create
+        arguments:
+            - 'de_DE'
