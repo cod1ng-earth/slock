@@ -120,6 +120,11 @@ fixtures: ##@development run 'bin/console hautelook:fixtures:load' in container
 	$(CLI) bin/console hautelook:fixtures:load
 .PHONY: fixtures
 
+migration: ##@development Validate the schema and create a Doctrine migration when necessary.
+	$(CLI) bin/console doctrine:schema:validate --skip-sync
+	$(CLI) bin/console doctrine:migrations:diff
+.PHONY: migration
+
 php-cs-fixer: ##@development run 'vendor/bin/php-cs-fixer fix' in container
 	$(CLI) vendor/bin/php-cs-fixer fix --diff --verbose
 .PHONY: php-cs-fixer
