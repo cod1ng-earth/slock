@@ -32,14 +32,14 @@ class Booking
     /**
      * @var Slot
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Slot",inversedBy="bookings")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Slot", inversedBy="bookings")
      */
     private $slot;
 
     /**
      * @var FoodTruck truck
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\FoodTruck",inversedBy="bookings")
+     * @ORM\ManyToOne(targetEntity="App\Entity\FoodTruck", inversedBy="bookings")
      */
     private $foodTruck;
 

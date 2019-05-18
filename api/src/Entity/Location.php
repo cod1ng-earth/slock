@@ -34,7 +34,7 @@ class Location
     /**
      * @var string Latitude
      *
-     * @ORM\Column(type="decimal",precision=8,scale=6)
+     * @ORM\Column(type="decimal", precision=8, scale=6)
      * @Assert\NotBlank
      */
     private $latitude = '';
@@ -42,7 +42,7 @@ class Location
     /**
      * @var string Longitude
      *
-     * @ORM\Column(type="decimal",precision=9,scale=6)
+     * @ORM\Column(type="decimal", precision=9, scale=6)
      * @Assert\NotBlank
      */
     private $longitude = '';
@@ -57,14 +57,14 @@ class Location
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Slot",mappedBy="location")
+     * @ORM\OneToMany(targetEntity="App\Entity\Slot", mappedBy="location")
      */
     private $slots;
 
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\CustomerLocation",mappedBy="location")
+     * @ORM\OneToMany(targetEntity="App\Entity\CustomerLocation", mappedBy="location")
      */
     private $customerLocations;
 

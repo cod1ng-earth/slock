@@ -41,7 +41,7 @@ class LunchTrain
     /**
      * @ORM\Column(type="datetime_immutable")
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank
      *
      * @var \DateTimeImmutable|null
      */
