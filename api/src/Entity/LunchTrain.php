@@ -71,9 +71,9 @@ class LunchTrain
         $this->createdAt = new \DateTimeImmutable();
     }
 
-    public function getId($id): void
+    public function getId(): int
     {
-        $this->id = $id;
+        return $this->id;
     }
 
     public function getOperator(): Customer
