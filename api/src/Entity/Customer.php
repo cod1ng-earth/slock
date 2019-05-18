@@ -77,7 +77,7 @@ class Customer
      * )
      * @ORM\JoinTable(name="lunch_train_riders")
      *
-     * @var ArrayCollection<Customer>
+     * @var Collection<Customer>
      */
     private $lunchTrains;
 
