@@ -91,10 +91,14 @@ build-images: ##@setup build docker images
 	$(DOCKER_COMPOSE) build
 .PHONY: build-images
 
+prepare: ##@setup build docker images
+	mkdir -p docker/db/data
+.PHONY: prepare
+
 update-setup: build-images start ##@setup update docker setup
 .PHONY: update-setup
 
-setup: build-images start codebase-update ##@setup Create dev enviroment
+setup: build-images prepare start codebase-update ##@setup Create dev enviroment
 .PHONY: setup
 
 codebase-update: composer-install ##@development updates code (composer install, codecept build)
