@@ -32,7 +32,7 @@ class LunchTrain
     private $operator;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Booking")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Booking", inversedBy="lunchTrains")
      *
      * @var Booking
      */

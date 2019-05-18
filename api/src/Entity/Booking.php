@@ -7,6 +7,8 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Filter\GeoDistanceFilter;
 use App\Filter\LocationFilter;
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
@@ -44,12 +46,24 @@ class Booking
     private $foodTruck;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\LunchTrain", mappedBy="booking")
+     *
+     * @var Collection<LunchTrain>
+     */
+    private $lunchTrains;
+
+    /**
      * @var DateTime booking date
      *
      * @ORM\Column(type="date")
      * @Assert\NotBlank
      */
     private $date;
+
+    public function __construct()
+    {
+        $this->lunchTrains = new ArrayCollection();
+    }
 
     public function getId(): int
     {
@@ -84,5 +98,21 @@ class Booking
     public function setDate(DateTime $date): void
     {
         $this->date = $date;
+    }
+
+    /**
+     * @return Collection<LunchTrain>
+     */
+    public function getLunchTrains()
+    {
+        return $this->lunchTrains;
+    }
+
+    /**
+     * @param Collection<LunchTrain> $lunchTrains
+     */
+    public function setLunchTrains($lunchTrains): void
+    {
+        $this->lunchTrains = $lunchTrains;
     }
 }
