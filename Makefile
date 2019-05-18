@@ -112,6 +112,10 @@ composer-update: ##@development run 'composer update', to update specific packag
 	$(CLI) php -dmemory_limit=-1 /usr/local/bin/composer update  --ansi $(COMPOSER_PARAMS) $(PACKAGES)
 .PHONY: composer-update
 
+cs: ##@development run 'vendor/bin/php-cs-fixer fix' in container
+	$(CLI) vendor/bin/php-cs-fixer fix --diff --verbose
+.PHONY: cs
+
 docker-stats: ##@other show information about running Docker containers
 	$(DOCKER) stats --format "table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}\t{{.BlockIO}}"
 .PHONY: docker-stats
@@ -129,14 +133,12 @@ migration: ##@development Validate the schema and create a Doctrine migration wh
 	$(CLI) bin/console doctrine:migrations:diff
 .PHONY: migration
 
-php-cs-fixer: ##@development run 'vendor/bin/php-cs-fixer fix' in container
-	$(CLI) vendor/bin/php-cs-fixer fix --diff --verbose
-.PHONY: php-cs-fixer
-
-phpstan: ##@development run 'vendor/bin/phpstan analyse' in container
-	$(CLI) vendor/bin/phpstan analyse --configuration=phpstan.neon
-.PHONY: php-cs-fixer
 
 run-console: ##@development Run custom command (usage example: make run comm='code:generate:module:yves test')
 	$(CONSOLE) $(comm)
 .PHONY: run-console
+
+stan: ##@development run 'vendor/bin/phpstan analyse' in container
+	$(CLI) vendor/bin/phpstan analyse --configuration=phpstan.neon
+.PHONY: stan
+
