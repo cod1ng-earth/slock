@@ -116,3 +116,13 @@ COPY --from=api_platform_php /srv/api/public public/
 FROM cooptilleuls/varnish:${VARNISH_VERSION}-alpine AS api_platform_varnish
 
 COPY docker/varnish/conf/default.vcl /usr/local/etc/varnish/default.vcl
+
+# dev image with xdebug
+FROM api_platform_php as api_platform_php_dev
+
+ARG XDEBUG_VERSION=2.7.2
+RUN set -eux; \
+	apk add --no-cache --virtual .build-deps $PHPIZE_DEPS; \
+	pecl install xdebug-$XDEBUG_VERSION; \
+	docker-php-ext-enable xdebug; \
+	apk del .build-deps
