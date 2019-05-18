@@ -1,0 +1,4 @@
+
+services:
+    'App\Filter\GeoDistanceFilter':
+        tags: [ 'api_platform.filter' ]

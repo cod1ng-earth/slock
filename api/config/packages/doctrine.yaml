@@ -24,3 +24,8 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+        dql:
+            numeric_functions:
+                earth_box: App\DQL\EarthBox
+                ll_to_earth: App\DQL\LLToEarth
+                contains: App\DQL\RangeOperator

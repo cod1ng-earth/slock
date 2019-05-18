@@ -2,13 +2,16 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Filter\GeoDistanceFilter;
 
 /**
  * @ApiResource
+ * @ApiFilter(GeoDistanceFilter::class, properties={"geo"}))
  * @ORM\Entity
  */
 class Booking
