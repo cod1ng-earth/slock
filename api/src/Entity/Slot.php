@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -24,9 +25,16 @@ class Slot
     /**
      * @var Location
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Location")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Location",inversedBy="slots")
      */
     private $location;
+
+    /**
+     * @var PersistentCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Booking",mappedBy="slot")
+     */
+    private $bookings;
 
     /**
      * @var string A nice person
@@ -49,5 +57,10 @@ class Slot
     public function setLocation(Location $location): void
     {
         $this->location = $location;
+    }
+
+    public function getBookings(): PersistentCollection
+    {
+        return $this->bookings;
     }
 }

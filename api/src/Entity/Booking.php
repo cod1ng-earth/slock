@@ -4,15 +4,17 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Filter\GeoDistanceFilter;
+use App\Filter\LocationFilter;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use App\Filter\GeoDistanceFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ApiResource
  * @ApiFilter(GeoDistanceFilter::class, properties={"geo"}))
+ * @ApiFilter(LocationFilter::class, properties={"location"}))
  * @ApiFilter(SearchFilter::class, properties={"date": "exact"})
  * @ORM\Entity
  */
@@ -30,14 +32,14 @@ class Booking
     /**
      * @var Slot
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Slot")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Slot",inversedBy="bookings")
      */
     private $slot;
 
     /**
      * @var FoodTruck truck
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\FoodTruck")
+     * @ORM\ManyToOne(targetEntity="App\Entity\FoodTruck",inversedBy="bookings")
      */
     private $foodTruck;
 

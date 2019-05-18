@@ -23,14 +23,14 @@ class Favorite
     /**
      * @var Customer
      *
-     * @ORM\ManyToOne(targetEntity="Customer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Customer",inversedBy="favorites")
      */
     private $customer;
 
     /**
      * @var FoodTruck
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\FoodTruck")
+     * @ORM\ManyToOne(targetEntity="App\Entity\FoodTruck",inversedBy="favorites")
      */
     private $foodTruck;
 

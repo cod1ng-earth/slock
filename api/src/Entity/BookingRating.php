@@ -29,14 +29,14 @@ class BookingRating
     private $booking;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\FoodTruck")
+     * @ORM\ManyToOne(targetEntity="App\Entity\FoodTruck",inversedBy="bookingRatings")
      *
      * @var FoodTruck
      */
     private $foodTruck;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Customer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Customer",inversedBy="bookingRatings")
      *
      * @var Customer
      */
