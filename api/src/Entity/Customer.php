@@ -6,6 +6,7 @@ use ApiPlatform\Core\Annotation as API;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\PersistentCollection;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -50,21 +51,21 @@ class Customer
     private $avatarUrl = '';
 
     /**
-     * @var PersistentCollection
+     * @var Collection
      *
      * @ORM\OneToMany(targetEntity="App\Entity\CustomerLocation",mappedBy="customer")
      */
     private $customerLocations;
 
     /**
-     * @var PersistentCollection
+     * @var Collection
      *
      * @ORM\OneToMany(targetEntity="App\Entity\BookingRating",mappedBy="customer")
      */
     private $bookingRatings;
 
     /**
-     * @var PersistentCollection
+     * @var Collection
      *
      * @ORM\OneToMany(targetEntity="App\Entity\Favorite",mappedBy="customer")
      */
@@ -84,6 +85,9 @@ class Customer
     public function __construct()
     {
         $this->lunchTrains = new ArrayCollection();
+        $this->customerLocations = new ArrayCollection();
+        $this->bookingRatings = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
     }
 
     public function getId(): int
@@ -121,27 +125,27 @@ class Customer
         $this->avatarUrl = $avatarUrl;
     }
 
-    public function getCustomerLocations(): PersistentCollection
+    public function getCustomerLocations(): Collection
     {
         return $this->customerLocations;
     }
 
-    public function getFavorites(): PersistentCollection
+    public function getFavorites(): Collection
     {
         return $this->favorites;
     }
 
-    public function getBookingRatings(): PersistentCollection
+    public function getBookingRatings(): Collection
     {
         return $this->bookingRatings;
     }
 
-    public function getLunchTrains(): ArrayCollection
+    public function getLunchTrains(): Collection
     {
         return $this->lunchTrains;
     }
 
-    public function setLunchTrains(ArrayCollection $lunchTrains): void
+    public function setLunchTrains(Collection $lunchTrains): void
     {
         $this->lunchTrains = $lunchTrains;
     }

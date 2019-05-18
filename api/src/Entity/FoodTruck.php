@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\PersistentCollection;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -31,21 +33,21 @@ class FoodTruck
     public $name = '';
 
     /**
-     * @var PersistentCollection
+     * @var Collection
      *
      * @ORM\OneToMany(targetEntity="App\Entity\Booking",mappedBy="foodTruck")
      */
     private $bookings;
 
     /**
-     * @var PersistentCollection
+     * @var Collection
      *
      * @ORM\OneToMany(targetEntity="App\Entity\BookingRating",mappedBy="foodTruck")
      */
     private $bookingRatings;
 
     /**
-     * @var PersistentCollection
+     * @var Collection
      *
      * @ORM\OneToMany(targetEntity="App\Entity\Favorite",mappedBy="foodTruck")
      */
@@ -65,22 +67,32 @@ class FoodTruck
      */
     private $imageUrl = '';
 
+    /**
+     * FoodTruck constructor.
+     */
+    public function __construct()
+    {
+        $this->bookings = new ArrayCollection();
+        $this->bookingRatings = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
+    }
+
     public function getId(): int
     {
         return $this->id;
     }
 
-    public function getBookings(): PersistentCollection
+    public function getBookings(): Collection
     {
         return $this->bookings;
     }
 
-    public function getBookingRatings(): PersistentCollection
+    public function getBookingRatings(): Collection
     {
         return $this->bookingRatings;
     }
 
-    public function getFavorites(): PersistentCollection
+    public function getFavorites(): Collection
     {
         return $this->favorites;
     }
