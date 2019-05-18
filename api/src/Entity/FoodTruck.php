@@ -58,6 +58,13 @@ class FoodTruck
      */
     public $description = '';
 
+    /**
+     * @ORM\Column(options={"default": ""})
+     *
+     * @var string
+     */
+    private $imageUrl = '';
+
     public function getId(): int
     {
         return $this->id;
@@ -76,5 +83,15 @@ class FoodTruck
     public function getFavorites(): PersistentCollection
     {
         return $this->favorites;
+    }
+
+    public function getImageUrl(): string
+    {
+        return $this->imageUrl;
+    }
+
+    public function setImageUrl(string $imageUrl): void
+    {
+        $this->imageUrl = $imageUrl;
     }
 }
