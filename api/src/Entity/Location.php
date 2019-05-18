@@ -3,9 +3,10 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\PersistentCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @ApiResource
@@ -54,18 +55,25 @@ class Location
     private $description = '';
 
     /**
-     * @var PersistentCollection
+     * @var Collection
      *
      * @ORM\OneToMany(targetEntity="App\Entity\Slot",mappedBy="location")
      */
     private $slots;
 
     /**
-     * @var PersistentCollection
+     * @var Collection
      *
      * @ORM\OneToMany(targetEntity="App\Entity\CustomerLocation",mappedBy="location")
      */
     private $customerLocations;
+
+    public function __construct()
+    {
+        $this->customerLocations = new ArrayCollection();
+        $this->slots = new ArrayCollection();
+    }
+
 
     public function getId(): int
     {
@@ -112,12 +120,12 @@ class Location
         $this->description = $description;
     }
 
-    public function getSlots(): PersistentCollection
+    public function getSlots(): Collection
     {
         return $this->slots;
     }
 
-    public function getCustomerLocations(): PersistentCollection
+    public function getCustomerLocations(): Collection
     {
         return $this->customerLocations;
     }
