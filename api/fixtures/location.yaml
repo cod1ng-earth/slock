@@ -1,6 +1,44 @@
 App\Entity\Location:
-    location_{1..20}:
-        name: <name()>
-        latitude: <latitude(49.05,49.25)>
-        longitude: <longitude(9.05,9.3)>
-        description: <paragraphs(3,true)>
+        
+    location_1:
+        name: "Schwarz IT GmbH & CoKG - Außenstelle Flein"
+        latitude: 49.102470
+        longitude: 9.189478
+        description: "Computer consultant"
+        
+    location_2:
+        name: "Schwarz IT KG - Weinsberg"
+        latitude: 49.148831
+        longitude: 9.298985
+        description: "Computer consultant"
+        
+    location_3:  
+        name: "Lidl Digital International GmbH & Co. KG - Neckarsulm"
+        latitude: 49.173259
+        longitude: 9.220797
+        description: "Corporate office"
+        
+    location_4:
+        name: "QBIG"
+        latitude: 49.121162
+        longitude: 9.219726
+        description: "Real estate rental agency"
+        
+    location_5:
+        name: "Schwarz IT GmbH & Co. KG - Oststraße"
+        latitude: 49.145383
+        longitude: 9.229686
+        description: "Computer consultant"
+        
+    location_6:
+        name: "Schwarz Campus Service GmbH & Co. KG - Bildungscampus"
+        latitude: 49.148365
+        longitude: 9.215555
+        description: "Corporate office"
+        
+    location_7:
+        name: "Schwarz IT KG  - Neckarsulm"
+        latitude: 49.183748
+        longitude: 9.236766
+        description: "Computer consultant"
+        
