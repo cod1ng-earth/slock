@@ -1,0 +1,4 @@
+App\Entity\Favorite:
+    favorite_{1..10}:
+        customer: '@customer_*'
+        foodtruck: '@foodtruck_*'

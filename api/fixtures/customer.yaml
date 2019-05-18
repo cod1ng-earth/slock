@@ -1,0 +1,4 @@
+App\Entity\Customer:
+    customer_{1..10}:
+        userName: <userName()>
+        password: <password()>

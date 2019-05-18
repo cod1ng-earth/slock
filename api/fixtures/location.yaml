@@ -1,0 +1,6 @@
+App\Entity\Location:
+    location_{1..10}:
+        name: <name()>
+        latitude: <latitude(49.05,49.25)>
+        longitude: <longitude(9.05,9.3)>
+        description: <paragraphs(3,true)>
