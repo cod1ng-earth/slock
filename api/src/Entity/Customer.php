@@ -37,6 +37,13 @@ class Customer
      */
     private $password = '';
 
+    /**
+     * @ORM\Column
+     *
+     * @var string
+     */
+    private $avatarUrl = '';
+
     public function getId(): int
     {
         return $this->id;
@@ -60,5 +67,15 @@ class Customer
     public function setPassword(string $password): void
     {
         $this->password = $password;
+    }
+
+    public function getAvatarUrl(): string
+    {
+        return $this->avatarUrl;
+    }
+
+    public function setAvatarUrl(string $avatarUrl): void
+    {
+        $this->avatarUrl = $avatarUrl;
     }
 }
