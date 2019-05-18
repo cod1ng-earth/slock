@@ -1,4 +1,4 @@
 App\Entity\Slot:
-    slot_{1..10}:
+    slot_{1..30}:
         name: <name()>
         location: '@location_*'
