@@ -19,7 +19,7 @@ final class Version20190518125648 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf('postgresql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'postgresql\'.');
 
-        $this->addSql('ALTER TABLE customer ADD avatar_url VARCHAR(255) NOT NULL');
+        $this->addSql("ALTER TABLE customer ADD avatar_url VARCHAR(255) DEFAULT '' NOT NULL");
     }
 
     public function down(Schema $schema): void
