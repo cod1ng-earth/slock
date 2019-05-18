@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation as API;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\PersistentCollection;
@@ -11,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ApiResource
  * @ORM\Entity
+ * @API\ApiFilter(SearchFilter::class, properties={"userName": "exact"})
  */
 class Customer
 {
