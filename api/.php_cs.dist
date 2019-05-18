@@ -9,6 +9,22 @@ return PhpCsFixer\Config::create()
     ->setRules([
         '@Symfony' => true,
         'array_syntax' => ['syntax' => 'short'],
+        'doctrine_annotation_array_assignment' => [
+            'operator' => ':',
+        ],
+        'doctrine_annotation_braces' => [
+            'syntax' => 'without_braces',
+        ],
+        'doctrine_annotation_indentation' => true,
+        'doctrine_annotation_spaces' => [
+            'after_argument_assignments' => false,
+            'after_array_assignments_colon' => true,
+            'after_array_assignments_equals' => false,
+            'around_parentheses' => true,
+            'before_argument_assignments' => false,
+            'before_array_assignments_colon' => false,
+            'before_array_assignments_equals' => false,
+        ],
         'no_superfluous_phpdoc_tags' => true,
     ])
     ->setFinder($finder)
