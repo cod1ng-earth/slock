@@ -13,8 +13,5 @@
     {
       "url": "https://github.com/negativetwelve/heroku-buildpack-subdir"
     }
-  ],
-  "scripts": {
-    "postdeploy": "cd api && php bin/console doctrine:schema:create"
-  }
+  ]
 }
