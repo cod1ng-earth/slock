@@ -1,4 +1,51 @@
 App\Entity\FoodTruck:
-    foodtruck_{1..10}:
-        name: <name()>
-        description: <paragraphs(3,true)>
+    foodtruck_1:
+        name: "Carrettiere - Bistro & Pizzaservice"
+        description: "Geiles Essen, immer und überall!"
+        imageUrl: "https://storage.kraken.io/EE17XVQEZQHx8mzmMgXg/a4d6b3fb6586aff2bd77c0283c2d8181/Foodtruck_1.jpg"
+        
+    foodtruck_2:
+        name: "Currycorner 0711"
+        description: "Curry das begeistert"
+        imageUrl: "https://storage.kraken.io/EE17XVQEZQHx8mzmMgXg/4950e60f634e1644ba4ac938d3a788d9/Foodtruck_2.jpg"
+        
+    foodtruck_3:
+        name: "Noodles Foodtruck"
+        description: "Selbstgemachte laaaange Nudeln"
+        imageUrl: "https://storage.kraken.io/EE17XVQEZQHx8mzmMgXg/776f38f23f475828933a8c5658bab08a/Foodtruck_3.jpg"
+        
+    foodtruck_4:
+        name: "International Streetfood"
+        description: "Essen aus aller Welt genau vor deinem Unternehmen. Ist auch nur mega teuer"
+        imageUrl: "https://storage.kraken.io/EE17XVQEZQHx8mzmMgXg/0fa437a4dedff8efc7898c0d89e58fe8/Foodtruck_4.jpg"
+        
+    foodtruck_5:
+        name: "Roadbar"
+        description: "WIe wärs mit nem Cocktail zum Mittagessen. Liegt auch nicht schwer im Magen"
+        imageUrl: "https://storage.kraken.io/EE17XVQEZQHx8mzmMgXg/b2df5b47b9e0daab354eb981cb890cea/Foodtruck_5.jpg"
+        
+    foodtruck_6:
+        name: "Gaby's Grillhähnchen"
+        description: "What ein Händel sach ich euch."
+        imageUrl: "https://storage.kraken.io/EE17XVQEZQHx8mzmMgXg/490cb7c06fcde3c6a9785d3d0687ec2d/Foodtruck_6.jpg"
+        
+    foodtruck_7:
+        name: "PizzaT"
+        description: "Gute Pizza sollte ein Menschenrecht sein"
+        imageUrl: "https://storage.kraken.io/EE17XVQEZQHx8mzmMgXg/ca2783a7d5ad2b7c926abb241ac7a6e0/Foodtruck_7.jpg"
+        
+    foodtruck_8:
+        name: "FOODTRUCK sGibby"
+        description: "Berliner Essen is ja ganz oke. Aber haben Sie schonmal schwäbisch gegessen?"
+        imageUrl: "https://storage.kraken.io/EE17XVQEZQHx8mzmMgXg/f5f236067eef21f6e8747917644ca969/Foodtruck_8.jpg"
+        
+    foodtruck_9:
+        name: "Lovely Wraps"
+        description: "If you like my wraps, I love u"
+        imageUrl: "https://storage.kraken.io/EE17XVQEZQHx8mzmMgXg/4438d72f04d54ead028a4b526b05d060/Foodtruck_9.jpg"
+        
+    foodtruck_10:
+        name: "Wok me"
+        description: "Spicy, healthy und einfach nur voll geil"
+        imageUrl: "https://storage.kraken.io/EE17XVQEZQHx8mzmMgXg/ec0419e1e1706112ae608fc8cfe30800/Foodtruck_10.jpg"
+        
