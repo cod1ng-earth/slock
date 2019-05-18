@@ -96,9 +96,6 @@ class Customer
         $this->avatarUrl = $avatarUrl;
     }
 
-    /**
-     * @return Collections\ArrayCollection
-     */
     public function getLunchTrains(): Collections\ArrayCollection
     {
         return $this->lunchTrains;
