@@ -26,14 +26,14 @@ class Slot
     /**
      * @var Location
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Location",inversedBy="slots")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Location", inversedBy="slots")
      */
     private $location;
 
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Booking",mappedBy="slot")
+     * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="slot")
      */
     private $bookings;
 

@@ -26,14 +26,14 @@ class CustomerLocation
     /**
      * @var Customer
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Customer",inversedBy="customerLocations")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Customer", inversedBy="customerLocations")
      */
     private $customer;
 
     /**
      * @var Location
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Location",inversedBy="customerLocations")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Location", inversedBy="customerLocations")
      */
     private $location;
 

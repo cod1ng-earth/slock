@@ -34,21 +34,21 @@ class FoodTruck
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Booking",mappedBy="foodTruck")
+     * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="foodTruck")
      */
     private $bookings;
 
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\BookingRating",mappedBy="foodTruck")
+     * @ORM\OneToMany(targetEntity="App\Entity\BookingRating", mappedBy="foodTruck")
      */
     private $bookingRatings;
 
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Favorite",mappedBy="foodTruck")
+     * @ORM\OneToMany(targetEntity="App\Entity\Favorite", mappedBy="foodTruck")
      */
     private $favorites;
 

@@ -52,21 +52,21 @@ class Customer
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\CustomerLocation",mappedBy="customer")
+     * @ORM\OneToMany(targetEntity="App\Entity\CustomerLocation", mappedBy="customer")
      */
     private $customerLocations;
 
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\BookingRating",mappedBy="customer")
+     * @ORM\OneToMany(targetEntity="App\Entity\BookingRating", mappedBy="customer")
      */
     private $bookingRatings;
 
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Favorite",mappedBy="customer")
+     * @ORM\OneToMany(targetEntity="App\Entity\Favorite", mappedBy="customer")
      */
     private $favorites;
 
