@@ -1,4 +1,0 @@
-App\Entity\CustomerLocation:
-    customerlocation_{1..10}:
-        customer: '@customer_*'
-        location: '@location_*'

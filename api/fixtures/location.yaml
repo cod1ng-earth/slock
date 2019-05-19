@@ -1,42 +1,91 @@
 App\Entity\Location:
-    location_1:
-        name: "Schwarz IT GmbH & CoKG - Außenstelle Flein"
-        latitude: 49.102470
-        longitude: 9.189478
-        description: "Computer consultant"
-
-    location_2:
-        name: "Schwarz IT KG - Weinsberg"
-        latitude: 49.148831
-        longitude: 9.298985
-        description: "Computer consultant"
-
-    location_3:
-        name: "Lidl Digital International GmbH & Co. KG - Neckarsulm"
+    location_lidl_digital_neckarsulm:
+        name: "Lidl Digital (Neckarsulm)"
         latitude: 49.173259
         longitude: 9.220797
         description: "Corporate office"
 
-    location_4:
+    location_qbig:
         name: "QBIG"
         latitude: 49.121162
         longitude: 9.219726
         description: "Real estate rental agency"
 
-    location_5:
-        name: "Schwarz IT GmbH & Co. KG - Oststraße"
-        latitude: 49.145383
-        longitude: 9.229686
-        description: "Computer consultant"
-
-    location_6:
-        name: "Schwarz Campus Service GmbH & Co. KG - Bildungscampus"
+    location_schwarz_campus:
+        name: "Schwarz Campus Service"
         latitude: 49.148365
         longitude: 9.215555
         description: "Corporate office"
 
-    location_7:
-        name: "Schwarz IT KG  - Neckarsulm"
-        latitude: 49.183748
-        longitude: 9.236766
+    location_sit_berlin:
+        name: "Schwarz IT (Berlin)"
+        latitude: 52.5252259
+        longitude: 13.4124539
         description: "Computer consultant"
+
+    location_sit_flein:
+        name: "Schwarz IT (Flein)"
+        latitude: 49.102470
+        longitude: 9.189478
+        description: "Computer consultant"
+
+    location_sit_flein_foodtruck_fischeraecker:
+        name: "Fischeräcker 2"
+        latitude: 49.10253
+        longitude: 9.1874513
+        description: "Standort für Food Truck am Fischeräcker 2"
+
+    location_sit_flein_foodtruck_nussbaeumle:
+        name: "Nußbäumle 2"
+        latitude: 49.10134
+        longitude: 9.1867613
+        description: "Standort für Food Truck am Nußbäumle 2"
+
+    location_sit_flein_foodtruck_sontheimer_feld:
+        name: "Sontheimer Feld 2"
+        latitude: 49.1024111
+        longitude: 9.1848301
+        description: "Standort für Food Truck am Sontheimer Feld 2"
+
+    location_sit_neckarsulm:
+        name: "Schwarz IT (Neckarsulm)"
+        latitude: 49.1836822
+        longitude: 9.2339206
+        description: "Computer consultant"
+
+    location_sit_neckarsulm_foodtruck_konrad_zuse_str:
+        name: "Konrad-Zuse-Straße 9"
+        latitude: 49.1818489
+        longitude: 9.2314627
+        description: "Standort für Food Truck an der Konrad-Zuse-Str. 9"
+
+    location_sit_neckarsulm_foodtruck_gottfried_leibniz_str:
+        name: "Gottfried-Leibniz-Straße 11"
+        latitude: 49.1815943
+        longitude: 9.2368492
+        description: "Standort für Food Truck an der Gottfried-Leibniz-Straße 11"
+
+    location_sit_oststrasse:
+        name: "Schwarz IT (Oststraße)"
+        latitude: 49.145383
+        longitude: 9.229686
+        description: "Computer consultant"
+
+    location_sit_weinsberg:
+        name: "Schwarz IT (Weinsberg)"
+        latitude: 49.148831
+        longitude: 9.298985
+        description: "Computer consultant"
+
+    location_turbine_kreuzberg_berlin:
+        name: "Turbine Kreuzberg (Berlin)"
+        latitude: 52.494062
+        longitude: 13.4273002
+        description: "Agency"
+
+    location_turbine_kreuzberg_stuttgart:
+        name: "Turbine Kreuzberg (Stuttgart)"
+        latitude: 48.774745
+        longitude: 9.1729103
+        description: "Agency"
+

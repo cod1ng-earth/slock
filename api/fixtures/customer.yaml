@@ -1,5 +1,56 @@
 App\Entity\Customer:
-    customer_{1..10}:
-        userName: <userName()>
+    customer_andreas:
+        userName: Andreas
         password: <password()>
         avatarUrl: '<adorableAvatarUrl(@self->userName, 128)>'
+
+    customer_balthasar:
+        userName: Balthasar
+        password: <password()>
+        avatarUrl: '<adorableAvatarUrl(@self->userName, 128)>'
+        
+    customer_bernd:
+        userName: Bernd
+        password: <password()>
+        avatarUrl: '<adorableAvatarUrl(@self->userName, 128)>'
+        
+    customer_christian:
+        userName: Christian
+        password: <password()>
+        avatarUrl: '<adorableAvatarUrl(@self->userName, 128)>'
+        
+    customer_nikolaus:
+        userName: Nikolaus
+        password: <password()>
+        avatarUrl: '<adorableAvatarUrl(@self->userName, 128)>'
+        
+    customer_philipp:
+        userName: Philipp
+        password: <password()>
+        avatarUrl: '<adorableAvatarUrl(@self->userName, 128)>'
+        
+    customer_ralph:
+        userName: Ralph
+        password: <password()>
+        avatarUrl: '<adorableAvatarUrl(@self->userName, 128)>'
+        
+    customer_robert:
+        userName: Robert
+        password: <password()>
+        avatarUrl: '<adorableAvatarUrl(@self->userName, 128)>'
+        
+    customer_sean:
+        userName: Sean
+        password: <password()>
+        avatarUrl: '<adorableAvatarUrl(@self->userName, 128)>'
+        
+    customer_stefan:
+        userName: Stefan
+        password: <password()>
+        avatarUrl: '<adorableAvatarUrl(@self->userName, 128)>'
+        
+    customer_stephan:
+        userName: Stephan
+        password: <password()>
+        avatarUrl: '<adorableAvatarUrl(@self->userName, 128)>'
+        

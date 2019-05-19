@@ -1,0 +1,52 @@
+App\Entity\CustomerLocation:
+    customerlocation_andreas:
+        customer: '@customer_andreas'
+        location: '@location_sit_berlin'
+
+    customerlocation_bernd_turbine_kreuzberg_berlin:
+        customer: '@customer_bernd'
+        location: '@location_turbine_kreuzberg_berlin'
+
+    customerlocation_bernd_turbine_kreuzberg_stuttgart:
+        customer: '@customer_bernd*'
+        location: '@location_turbine_kreuzberg_stuttgart'
+
+    customerlocation_ralph_sit_berlin:
+        customer: '@customer_ralph'
+        location: '@location_sit_berlin'
+
+    customerlocation_ralph_sit_flein:
+        customer: '@customer_ralph'
+        location: '@location_sit_flein'
+
+    customerlocation_ralph_sit_neckarsulm:
+        customer: '@customer_ralph'
+        location: '@location_sit_neckarsulm'
+
+    customerlocation_ralph_sit_oststrasse:
+        customer: '@customer_ralph'
+        location: '@location_sit_oststrasse'
+
+    customerlocation_ralph_sit_weinsberg:
+        customer: '@customer_ralph'
+        location: '@location_sit_weinsberg'
+
+    customerlocation_robert_turbine_kreuzberg_berlin:
+        customer: '@customer_robert'
+        location: '@location_turbine_kreuzberg_berlin'
+
+    customerlocation_robert_turbine_kreuzberg_stuttgart:
+        customer: '@customer_robert*'
+        location: '@location_turbine_kreuzberg_stuttgart'
+
+    customerlocation_stefan_sit_flein:
+        customer: '@customer_stefan*'
+        location: '@location_sit_flein'
+
+    customerlocation_stefan_turbine_kreuzberg_berlin:
+        customer: '@customer_stefan'
+        location: '@location_turbine_kreuzberg_berlin'
+
+    customerlocation_stefan_turbine_kreuzberg_stuttgart:
+        customer: '@customer_stefan*'
+        location: '@location_turbine_kreuzberg_stuttgart'
