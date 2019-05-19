@@ -1,5 +1,66 @@
 App\Entity\Booking:
-    booking_{1..20}:
-        foodtruck: '@foodtruck_*'
-        slot: '@slot_*'
-        date: <dateTimeBetween('-2 days','+4 days')>
+    booking_slot_sit_flein_foodtruck_fischeraecker_today:
+        foodtruck: '@foodtruck_1'
+        slot: '@slot_sit_flein_foodtruck_fischeraecker'
+        date: '<(new DateTime())>'
+            
+    booking_slot_sit_flein_foodtruck_nussbaeumle_today:
+        foodtruck: '@foodtruck_2'
+        slot: '@slot_sit_flein_foodtruck_nussbaeumle'
+        date: '<(new DateTime())>'
+            
+    booking_slot_sit_flein_foodtruck_sontheimer_feld_today:
+        foodtruck: '@foodtruck_3'
+        slot: '@slot_sit_flein_foodtruck_sontheimer_feld'
+        date: '<(new DateTime())>'
+            
+    booking_slot_sit_neckarsulm_foodtruck_konrad_zuse_str_today:
+        foodtruck: '@foodtruck_4'
+        slot: '@slot_sit_neckarsulm_foodtruck_konrad_zuse_str'
+        date: '<(new DateTime())>'
+            
+    booking_sit_neckarsulm_foodtruck_gottfried_leibniz_str_today:
+        foodtruck: '@foodtruck_5'
+        slot: '@slot_sit_neckarsulm_foodtruck_gottfried_leibniz_str'
+        date: '<(new DateTime())>'
+            
+    booking_slot_sit_flein_foodtruck_nussbaeumle_tomorrow:
+        foodtruck: '@foodtruck_6'
+        slot: '@slot_sit_flein_foodtruck_nussbaeumle'
+        date: '<(new DateTime("+1 day"))>'
+            
+    booking_slot_sit_flein_foodtruck_sontheimer_feld_tomorrow:
+        foodtruck: '@foodtruck_4'
+        slot: '@slot_sit_flein_foodtruck_sontheimer_feld'
+        date: '<(new DateTime("+1 day"))>'
+            
+    booking_slot_sit_neckarsulm_foodtruck_konrad_zuse_str_tomorrow:
+        foodtruck: '@foodtruck_9'
+        slot: '@slot_sit_neckarsulm_foodtruck_konrad_zuse_str'
+        date: '<(new DateTime("+1 day"))>'
+            
+    booking_sit_neckarsulm_foodtruck_gottfried_leibniz_str_tomorrow:
+        foodtruck: '@foodtruck_2'
+        slot: '@slot_sit_neckarsulm_foodtruck_gottfried_leibniz_str'
+        date: '<(new DateTime("+1 day"))>'
+            
+    booking_slot_sit_flein_foodtruck_fischeraecker_day_after_tomorrow:
+        foodtruck: '@foodtruck_6'
+        slot: '@slot_sit_flein_foodtruck_fischeraecker'
+        date: '<(new DateTime("+2 days"))>'
+
+    booking_slot_sit_flein_foodtruck_sontheimer_feld_day_after_tomorrow:
+        foodtruck: '@foodtruck_9'
+        slot: '@slot_sit_flein_foodtruck_sontheimer_feld'
+        date: '<(new DateTime("+2 days"))>'
+
+    booking_slot_sit_neckarsulm_foodtruck_konrad_zuse_str_day_after_tomorrow:
+        foodtruck: '@foodtruck_2'
+        slot: '@slot_sit_neckarsulm_foodtruck_konrad_zuse_str'
+        date: '<(new DateTime("+2 days"))>'
+
+    booking_sit_neckarsulm_foodtruck_gottfried_leibniz_str_day_after_tomorrow:
+        foodtruck: '@foodtruck_7'
+        slot: '@slot_sit_neckarsulm_foodtruck_gottfried_leibniz_str'
+        date: '<(new DateTime("+2 days"))>'
+                    

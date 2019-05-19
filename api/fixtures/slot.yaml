@@ -1,4 +1,20 @@
 App\Entity\Slot:
-    slot_{1..30}:
-        name: <name()>
-        location: '@location_*'
+    slot_sit_flein_foodtruck_fischeraecker:
+        name: "Fischeräcker 2"
+        location: '@location_sit_flein_foodtruck_fischeraecker'
+
+    slot_sit_flein_foodtruck_nussbaeumle:
+        name: "Nußbäumle 2"
+        location: '@location_sit_flein_foodtruck_nussbaeumle'
+
+    slot_sit_flein_foodtruck_sontheimer_feld:
+        name: "Sontheimer Feld 2"
+        location: '@location_sit_flein_foodtruck_sontheimer_feld'
+
+    slot_sit_neckarsulm_foodtruck_konrad_zuse_str:
+        name: "Konrad-Zuse-Straße 9"
+        location: '@location_sit_neckarsulm_foodtruck_konrad_zuse_str'
+
+    slot_sit_neckarsulm_foodtruck_gottfried_leibniz_str:
+        name: "Gottfried-Leibniz-Straße 11"
+        location: '@location_sit_neckarsulm_foodtruck_gottfried_leibniz_str'
