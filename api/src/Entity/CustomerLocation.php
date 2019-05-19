@@ -4,12 +4,14 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Filter\CustomerFilter;
 use App\Filter\LocationFilter;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ApiResource
  * @ApiFilter(LocationFilter::class, properties={"location"}))
+ * @ApiFilter(CustomerFilter::class, properties={"customer"}))
  * @ORM\Entity
  */
 class CustomerLocation
